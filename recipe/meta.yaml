@@ -18,7 +18,7 @@ requirements:
     - pip
   run:
     - python
-    - numpy
+    - numpy >=1.13.0
     - scipy >=0.12.0
     - matplotlib >=1.5.0
     - theano >=1.0.0
@@ -27,6 +27,7 @@ requirements:
     - joblib <0.13.0
     - six >=1.10.0
     - tqdm >=4.8.4
+    - six >=1.10.0
     - h5py >=2.7.0
     - enum34 >=1.1.6  # [py<34]
 
@@ -38,7 +39,9 @@ test:
     - pymc3.examples
     - pymc3.glm
     - pymc3.gp
+    - pymc3.plots
     - pymc3.step_methods
+    - pymc3.step_methods.hmc
     - pymc3.tests
     - pymc3.tuning
     - pymc3.variational
