@@ -20,15 +20,15 @@ requirements:
 
   run:
     - python
+    - theano >=1.0.0
     - numpy >=1.11.0
     - scipy >=0.12.0
     - matplotlib >=1.5.0
-    - theano >=0.9
     - pandas >=0.18.0
     - patsy >=0.4.0
     - joblib >=0.9
-    - six >=1.10.0
     - tqdm >=4.8.4
+    - six >=1.10.0
     - h5py >=2.7.0
     - enum34 >=1.1.6  # [py<34]
 
@@ -38,9 +38,12 @@ test:
     - pymc3.backends
     - pymc3.distributions
     - pymc3.examples
+    - pymc3.external
     - pymc3.glm
     - pymc3.gp
+    - pymc3.plots
     - pymc3.step_methods
+    - pymc3.step_methods.hmc
     - pymc3.tests
     - pymc3.tuning
     - pymc3.variational
