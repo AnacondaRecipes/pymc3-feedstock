@@ -15,17 +15,20 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.7
     - pip
   run:
-    - python >=3.5
-    - theano >=1.0.4
-    - numpy >=1.13.0
-    - scipy >=0.18.1
-    - pandas >=0.18.0
-    - patsy >=0.4.0
-    - tqdm >=4.8.4
-    - h5py >=2.7.0
+    - python >=3.7
+    - aesara>=2.0.1
+    - arviz>=0.11.1
+    - cachetools>=4.2.1
+    - dill
+    - fastprogress>=0.2.0
+    - numpy>=1.15.0
+    - pandas>=0.24.0
+    - patsy>=0.5.1
+    - scipy>=1.2.0
+    - typing-extensions>=3.7.4
 
 test:
   imports:
@@ -49,6 +52,7 @@ about:
   license_file: LICENSE
   license_family: Apache
   summary: 'Probabilistic Programming in Python'
+  dev_url: https://github.com/pymc-devs/pymc3
 
 extra:
   recipe-maintainers:
