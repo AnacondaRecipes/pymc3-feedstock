@@ -1,4 +1,4 @@
-{% set version = "3.8" %}
+{% set version = "3.11.4" %}
 
 package:
   name: pymc3
@@ -6,52 +6,64 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pymc3/pymc3-{{ version }}.tar.gz
-  sha256: 1bb2915e4a29877c681ead13932b0b7d276f7f496e9c3f09ba96b977c99caf00
+  sha256: 3b88d1e6c85f7fb8a9b99d6f136ac860672170370ec4146338fdd160c3b3fd3f
 
 build:
   number: 0
-  noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: true  # [py<37]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
   run:
-    - python >=3.5
-    - theano >=1.0.4
-    - numpy >=1.13.0
-    - scipy >=0.18.1
-    - pandas >=0.18.0
-    - patsy >=0.4.0
-    - tqdm >=4.8.4
-    - h5py >=2.7.0
+    - python
+    - arviz >=0.11.0
+    - cachetools >=4.2.1
+    - dill
+    - fastprogress >=0.2.0
+    - numpy >=1.15.0
+    - pandas >=0.24.0
+    - patsy >=0.5.1
+    - scipy >=1.2.0
+    - semver
+    - theano-pymc ==1.1.2
+    - typing-extensions >=3.7.4
+    - mkl-service
+    - cxx-compiler  # [not win]
+    - m2w64-toolchain  # [win]
+    - libpython  # [win]
 
 test:
   imports:
     - pymc3
     - pymc3.backends
     - pymc3.distributions
-    - pymc3.examples
     - pymc3.glm
     - pymc3.gp
     - pymc3.step_methods
     - pymc3.tests
     - pymc3.tuning
     - pymc3.variational
-
+    - pymc3.ode
+  commands:
+    - pip check
   requires:
-    - pytest
+    - pip
 
 about:
   home: http://github.com/pymc-devs/pymc3
   license: Apache-2.0
   license_file: LICENSE
   license_family: Apache
-  summary: 'Probabilistic Programming in Python'
+  summary: Probabilistic Programming in Python
 
 extra:
   recipe-maintainers:
     - ericmjl
     - springcoil
     - twiecki
+    - fonnesbeck
+    - michaelosthege
+    - maresb
