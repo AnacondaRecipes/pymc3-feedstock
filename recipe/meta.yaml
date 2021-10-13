@@ -31,7 +31,7 @@ requirements:
     - theano-pymc ==1.1.2
     - typing-extensions >=3.7.4
     - mkl-service
-    - cxx-compiler  # [not win]
+    - {{ compiler('cxx') }} # [not win]
     - m2w64-toolchain  # [win]
     - libpython  # [win]
 
