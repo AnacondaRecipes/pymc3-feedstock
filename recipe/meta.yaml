@@ -17,23 +17,23 @@ requirements:
   host:
     - python
     - pip
+    - numpy
+    - setuptools
+    - wheel
   run:
     - python
     - arviz >=0.11.0
     - cachetools >=4.2.1
     - dill
     - fastprogress >=0.2.0
-    - numpy >=1.15.0
+    - {{ pin_compatible('numpy') }}
     - pandas >=0.24.0
     - patsy >=0.5.1
     - scipy >=1.2.0
-    - semver
+    - semver >=2.13.0
     - theano-pymc ==1.1.2
     - typing-extensions >=3.7.4
-    - mkl-service
-    - {{ compiler('cxx') }} # [not win]
-    - m2w64-toolchain  # [win]
-    - libpython  # [win]
+
 
 test:
   imports:
@@ -42,22 +42,27 @@ test:
     - pymc3.distributions
     - pymc3.glm
     - pymc3.gp
+    - pymc3.ode
+    - pymc3.plots
+    - pymc3.smc
+    - pymc3.stats
     - pymc3.step_methods
     - pymc3.tests
     - pymc3.tuning
     - pymc3.variational
-    - pymc3.ode
-  commands:
-    - pip check
   requires:
     - pip
+  commands:
+    - pip check
 
 about:
-  home: http://github.com/pymc-devs/pymc3
+  home: https://github.com/pymc-devs/pymc
   license: Apache-2.0
   license_file: LICENSE
   license_family: Apache
   summary: Probabilistic Programming in Python
+  dev_url: https://github.com/pymc-devs/pymc
+  doc_url: https://docs.pymc.io/en/stable/
 
 extra:
   recipe-maintainers:
