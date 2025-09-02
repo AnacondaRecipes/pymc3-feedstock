@@ -12,8 +12,8 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  # theano-pymc ==1.1.2 is already publicly archived, many errors appear because it starts from py312, which removed numpy.distutils, and other problems.
-  skip: true  # [py<37 or py>311]
+  # scipy 1.7.3 availiable only from py38-py310
+  skip: true  # [py<37 or py>310]
 
 requirements:
   host:
